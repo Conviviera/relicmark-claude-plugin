@@ -17,7 +17,7 @@ The plugin holds no scripts, hooks or executables. It is three small JSON files 
 
 ## Install
 
-In Claude Code, add this repository as a marketplace, then install the plugin from it. This repository is `Conviviera/relicmark-claude-plugin`.
+In Claude Code, add this repository as a marketplace, then install the plugin from it. This repository is `Conviviera/relicmark-claude-plugin`; if the short name asks for SSH access on your machine, give the full address instead, `https://github.com/Conviviera/relicmark-claude-plugin`.
 
 ```text
 /plugin marketplace add Conviviera/relicmark-claude-plugin
