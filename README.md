@@ -13,7 +13,7 @@ The composite is an estimate. It is not an appraisal, not a guarantee of what a 
 - A connection to Relicmark's public, read-only server at `https://relicmark.com/mcp/`. It needs no account, no sign-in and no key.
 - One skill, `relicmark-ledger`, that tells Claude how to search, when to fetch, and how to word a price honestly.
 
-The plugin holds no scripts, hooks or executables. It is three small JSON files (the plugin manifest, the marketplace manifest and the server address), one Markdown skill, this README and the license.
+The plugin holds no scripts, hooks or executables. It is three small JSON files (the plugin manifest, the marketplace manifest and the server address), one Markdown skill, the listing icon, this README and the license.
 
 ## Install
 
