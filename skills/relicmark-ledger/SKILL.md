@@ -25,8 +25,8 @@ Lead with one sentence built from `metadata.prices.composite`: `value`, `confide
 
 - `basis_count` 1: say it rests on a single sale and has no range.
 - `basis_count` 2 or 3: say "counted sales run from `low` to `high`".
-- `basis_count` 4 or more: say "likely range `low` to `high`".
-- `low` equal to `high` (with `basis_count` 2 or more): give no range. With 2 or 3, say "the counted sales are all at `low`". With 4 or more, say "the middle half of the counted sales is at `low`"; do not say all the sales were at that price.
+- `basis_count` 4 or more: say "likely range `low` to `high`". That range is the weighted 25th to 75th percentile of the counted sales, in which newer sales weigh more; do not call it the middle half of the sales.
+- `low` equal to `high` (with `basis_count` 2 or more): give no range. With 2 or 3, say "the counted sales are all at `low`". With 4 or more, say "the weighted range collapses to one figure, `low`"; do not say that all, or half, of the sales were at that price.
 - `status` "stale": say the newest counted sale is more than six months old and the figure may be out of date.
 
 Example: "Relicmark composite $209 (high confidence, likely $171 to $234, 10 counted sales, newest Nov 7, 2026)."
@@ -36,7 +36,7 @@ The composite is Relicmark's estimate from counted verified US-dollar sales (`me
 If `status` is "insufficient" there is no composite; never estimate one.
 
 - `metadata.prices.counts.verified` is 0: say Relicmark has no verified sale of this exact card and grade yet.
-- `counts.verified` is above 0: say the ledger holds that many verified sales but none qualifies (a qualifying sale is a verified US-dollar sale from the last 18 months that is not an outlier), and cite them as dated history, not a current value.
+- `counts.verified` is above 0: say the ledger holds that many verified sales but none qualifies (a qualifying sale is verified, not excluded, not held (a sale from a source whose written permission to reuse its records is not on file is held and not counted), in US dollars, dated within 540 days of the as_of date (about 18 months), and not an outlier (when at least four sales meet those conditions, each one is compared with the median of all the others that meet them, before any outlier is removed, and is excluded if it is below 0.4 times or above 2.5 times that median; in this way every one of them can be excluded)), and cite them as dated history, not a current value.
 - `metadata.prices` is null: say this connection has no price record for the card and link the ledger.
 
 Only rows with `counted` true fed the composite. A row with `rights_hold` true is held: written permission from its source is not on file, so it is listed and never counted. Call it held and never use its price as a comparable. For other uncounted rows give `not_counted_reason`, or `exclusion_reason` when `status` is "excluded". Asking prices (`metadata.prices.asks`) are listings, never sales, and never feed the composite; most ledgers list none.

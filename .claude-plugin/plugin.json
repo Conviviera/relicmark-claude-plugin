@@ -1,7 +1,7 @@
 {
   "name": "relicmark-ledger",
   "displayName": "Relicmark Ledger",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Look up a graded trading card on Relicmark and get its composite price, an estimate built only from verified, source-linked sales of that exact card and grade, with the sale rows behind it. Read only, no sign-in. Not an appraisal and not authentication.",
   "author": {
     "name": "Conviviera Corp.",
